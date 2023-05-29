@@ -6,12 +6,14 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 import { MaterialModule } from './material.module';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
   declarations: [
     NotFoundComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { MaterialModule } from './material.module';
     MaterialModule
   ],
   exports: [
-    ToolbarComponent
+    ToolbarComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }

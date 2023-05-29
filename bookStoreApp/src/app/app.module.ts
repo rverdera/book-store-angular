@@ -8,15 +8,19 @@ import { AppRoutingModule } from './app-routing.module';
 // import { PublicModule } from './public/public.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
+
+import { AboutUsComponent } from './public-components/about-us/about-us.component';
+import { HowItWorksComponent } from './public-components/how-it-works/how-it-works.component';
+import { HomeComponent } from './public-components/home/home.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AboutUsComponent,
+    HowItWorksComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -25,10 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
     // PublicModule,
     SharedModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule
+    BrowserAnimationsModule 
 
   ],
   providers: [],
