@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookModel } from '../../models/book.model';
 import { BookService } from '../../services/book.service';
-import { CounterService } from 'src/app/shared/services/counter.service';
+import { Counter2Service } from 'src/app/shared/services/counter2.service';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class AllBooksComponent implements OnInit {
   public books: BookModel[] = [];
 
   constructor(public bookService: BookService,
-              public _counterService: CounterService) { }
+              public _counterService: Counter2Service) { }
 
   ngOnInit(): void {
 

@@ -14,6 +14,11 @@ import { HowItWorksComponent } from './public-components/how-it-works/how-it-wor
 import { HomeComponent } from './public-components/home/home.component';
 
 
+import { CounterService } from './shared/services/counter.service';
+import { Counter2Service } from './shared/services/counter2.service';
+import { TestService } from './shared/services/test.service';
+
+
 
 @NgModule({
   declarations: [
@@ -32,7 +37,7 @@ import { HomeComponent } from './public-components/home/home.component';
     BrowserAnimationsModule 
 
   ], 
-  providers: [],
+  providers: [{provide: CounterService, useExisting: Counter2Service}, Counter2Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
