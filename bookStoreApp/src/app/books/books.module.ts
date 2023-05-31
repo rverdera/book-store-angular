@@ -6,6 +6,10 @@ import { BooksComponent } from './books.component';
 import { AllBooksComponent } from './components/all-books/all-books.component';
 import { BookDetailsComponent } from './components/book-details/book-details.component';
 
+import { SharedModule } from '../shared/shared.module';
+
+// import { BookService } from './services/book.service'; -- across all module - for dependency injection
+
 
 @NgModule({
   declarations: [
@@ -15,7 +19,9 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
   ],
   imports: [
     CommonModule,
-    BooksRoutingModule
-  ]
+    BooksRoutingModule,
+    SharedModule
+  ],
+  // providers: [BookService] -- across all module
 })
 export class BooksModule { }
