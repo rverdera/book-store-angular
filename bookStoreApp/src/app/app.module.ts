@@ -37,7 +37,8 @@ import { TestService } from './shared/services/test.service';
     BrowserAnimationsModule 
 
   ], 
-  providers: [{provide: CounterService, useExisting: Counter2Service}, Counter2Service],
+  providers: [{provide: CounterService, useExisting: Counter2Service}, Counter2Service,
+  { provide: 'appTitle', useValue: {title: 'this is the title', description: 'This is the title description'}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
