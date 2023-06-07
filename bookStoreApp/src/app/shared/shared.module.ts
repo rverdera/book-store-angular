@@ -7,6 +7,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 import { MaterialModule } from './material.module';
 import { FooterComponent } from './components/footer/footer.component';
+import { AuthorsComponent } from './components/authors/authors.component';
 
 
 
@@ -14,7 +15,8 @@ import { FooterComponent } from './components/footer/footer.component';
   declarations: [
     NotFoundComponent,
     ToolbarComponent,
-    FooterComponent
+    FooterComponent,
+    AuthorsComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { FooterComponent } from './components/footer/footer.component';
   exports: [
     ToolbarComponent,
     FooterComponent,
-    MaterialModule
+    MaterialModule,
+    AuthorsComponent
   ]
 })
 export class SharedModule { }

@@ -8,7 +8,7 @@ export class BookService {
 
   constructor() { }
 
-  public getBooks(): BookModel[] {
+  public getBooks(): any[] {
     return [
       {
         "id": 1,
@@ -82,4 +82,30 @@ export class BookService {
       }
     ]
   }
+
+  public recentBooks(): any[] {
+    return [
+      {
+        "id": 1,
+        "title": "Angular Fundamentals",
+        "totalPages": 453,
+        "author": "Ram Singh",
+        "price": {
+          "currency": "INR",
+          "value": 199
+        }
+      },
+      {
+        "id": 2,
+        "title": "Java Fundamentals",
+        "totalPages": 987,
+        "author": "Kishan Pal",
+        "price": {
+          "currency": "USD",
+          "value": 19
+        }    
+      }
+    ]
+  }
+
 }

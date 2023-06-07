@@ -34,11 +34,24 @@ import { TestService } from './shared/services/test.service';
     // PublicModule,
     SharedModule,
     AppRoutingModule,
-    BrowserAnimationsModule 
+    BrowserAnimationsModule
 
-  ], 
-  providers: [{provide: CounterService, useExisting: Counter2Service}, Counter2Service,
-  { provide: 'appTitle', useValue: {title: 'this is the title', description: 'This is the title description'}}],
+  ],
+  providers: [
+    {
+      provide: CounterService,
+      useFactory: (testService: TestService) => testService.status ? new CounterService() : new Counter2Service(),
+      deps: [TestService]
+    },
+    TestService,
+    {
+      provide: 'appTitle',
+      useValue: {
+        title: 'this is the title',
+        description: 'This is the title description'
+      }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

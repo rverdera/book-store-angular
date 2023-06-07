@@ -6,12 +6,11 @@ import { CounterService } from './counter.service';
 // })
 export class TestService {
 
-  //public counter : number = 0;
 
   constructor() { 
     
   }
 
- 
+  public status: boolean = true; 
 
 }

@@ -1,25 +1,9 @@
-<h2>Books</h2>
+<h2>{{ pageTitle }}</h2>
+
+<a [routerLink]="'recent'">Recent Books</a>
 
 <button (click)="increase()">Counter ++</button>
 <button (click)="decrease()">Counter --</button>
 <p>Counter = {{ _counterService.counter }}</p>
 
-<div class="container">
-  <mat-card class="book-card" *ngFor="let book of books">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{book.title}}</mat-card-title>
-  
-    </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p> Author: {{ book.author }} </p>
-      <p> Total Pages: {{ book.totalPages }} </p>
-      <p> Price: {{ book.price.currency }} {{ book.price.value }} </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>Details</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
-</div>
+<app-book-card [allBooks]="books"></app-book-card>
