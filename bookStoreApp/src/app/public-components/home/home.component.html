@@ -1,6 +1,4 @@
-<p>home works!</p>
+<p>home parent works!</p>
 
-
-<p>Data from child Component = {{ _testService.myData }}</p>
-<h2>Our Authors</h2>
-<app-authors></app-authors>
+<button (click)="counter()">Counter</button>
+<app-authors [data]="count" [data2]="test"></app-authors>
