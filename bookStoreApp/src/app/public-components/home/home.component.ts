@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit} from '@angular/core';
+import { TestService } from 'src/app/shared/services/test.service';
 
 @Component({
   selector: 'app-home',
@@ -8,14 +9,11 @@ import { Component, Inject, OnInit} from '@angular/core';
 export class HomeComponent implements OnInit {
 
 
-
-  constructor() { }
+  constructor(public _testService: TestService) { }
 
   ngOnInit(): void {
-
+    
   }
 
-  public childData($event: any): void {
-    console.log($event);    
-  }  
+  
 }
