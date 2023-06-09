@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
   public count: number = 0;
   public test: boolean = false;
 
+  public address: string = 'India';
+
   public obj : AuthorModel = {
     id: 10,
     name: 'nitish'
@@ -29,6 +31,7 @@ export class HomeComponent implements OnInit {
     this.count++;
     this.test = !this.test;
     this.obj.id = this.count++
+    this.address = this.address + this.count;
   }
 
   
