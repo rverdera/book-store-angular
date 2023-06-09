@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import { AuthorsComponent } from 'src/app/shared/components/authors/authors.component';
 import { AuthorModel } from 'src/app/shared/models/authors.model';
 import { TestService } from 'src/app/shared/services/test.service';
@@ -8,14 +8,13 @@ import { TestService } from 'src/app/shared/services/test.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked{
+export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked, OnDestroy{
 
   @ViewChild('btnCounter') btnCounter: ElementRef;
   @ViewChild(AuthorsComponent) authComponent: AuthorsComponent;
 
   public count: number = 0;
   public test: boolean = false;
-
   public address: string = 'India';
 
   public obj : AuthorModel = {
@@ -23,21 +22,31 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked{
     name: 'nitish'
   };
 
+  private time: any;
+
   constructor(public _testService: TestService) { 
-    console.log('Hello from parent Constructor');
-    console.log(this.btnCounter);
+    //console.log('Hello from parent Constructor');
+    //console.log(this.btnCounter);
   }
+
+  ngOnDestroy(): void {
+    console.log('Home component destroy');
+    clearInterval(this.time);
+
+  }
+
   ngAfterViewChecked(): void {
-    console.log(this.authComponent.childCounter);
+    //console.log(this.authComponent.childCounter);
     
   }
   ngAfterViewInit(): void {
-    console.log(this.btnCounter);
-    this.btnCounter.nativeElement.innerHTML = 'Button Text Updated'
+    //console.log(this.btnCounter);
+    //this.btnCounter.nativeElement.innerHTML = 'Button Text Updated'
   }
 
   ngOnInit(): void {
     console.log('Hello from parent ngOnInit');
+    this.timer();
   }
 
   counter() : void {
@@ -47,5 +56,10 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked{
     this.address = this.address + this.count;
   }
 
-  
+  timer() : void {
+    this.time = setInterval(()=> {
+      this.count++
+      console.log(this.count);      
+    }, 1000)
+  }
 }
