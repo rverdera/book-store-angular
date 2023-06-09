@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
 import { AuthorModel } from 'src/app/shared/models/authors.model';
 import { TestService } from 'src/app/shared/services/test.service';
 
@@ -7,7 +7,9 @@ import { TestService } from 'src/app/shared/services/test.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('btnCounter') btnCounter: ElementRef;
 
   public count: number = 0;
   public test: boolean = false;
@@ -21,10 +23,15 @@ export class HomeComponent implements OnInit {
 
   constructor(public _testService: TestService) { 
     console.log('Hello from parent Constructor');
+    console.log(this.btnCounter);
+  }
+  ngAfterViewInit(): void {
+    console.log(this.btnCounter);
+    this.btnCounter.nativeElement.innerHTML = 'Button Text Updated'
   }
 
   ngOnInit(): void {
-    console.log('Hello from parent ngOnInit');
+    console.log('Hello from parent ngOnInit');  
   }
 
   counter() : void {
