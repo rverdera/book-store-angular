@@ -26,7 +26,7 @@ export class BookService {
       "price": {
         "currency": "USD",
         "value": 19
-      }    
+      }
     },
     {
       "id": 3,
@@ -36,7 +36,7 @@ export class BookService {
       "price": {
         "currency": "INR",
         "value": 299
-      }    
+      }
     },
     {
       "id": 4,
@@ -46,7 +46,7 @@ export class BookService {
       "price": {
         "currency": "INR",
         "value": 399
-      }    
+      }
     },
     {
       "id": 5,
@@ -56,7 +56,7 @@ export class BookService {
       "price": {
         "currency": "USD",
         "value": 99
-      }    
+      }
     },
     {
       "id": 6,
@@ -66,7 +66,7 @@ export class BookService {
       "price": {
         "currency": "INR",
         "value": 399
-      }    
+      }
     },
     {
       "id": 7,
@@ -76,7 +76,7 @@ export class BookService {
       "price": {
         "currency": "USD",
         "value": 99
-      }    
+      }
     }
   ];
 
