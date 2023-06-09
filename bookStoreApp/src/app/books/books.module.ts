@@ -9,6 +9,8 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
 import { SharedModule } from '../shared/shared.module';
 import { RecentBooksComponent } from './components/recent-books/recent-books.component';
 import { BookCardComponent } from './components/book-card/book-card.component';
+import { AddBookComponent } from './components/add-book/add-book.component';
+import { FormsModule } from '@angular/forms';
 
 // import { BookService } from './services/book.service'; -- across all module - for dependency injection
 
@@ -19,12 +21,14 @@ import { BookCardComponent } from './components/book-card/book-card.component';
     BookDetailsComponent,
     BooksComponent,
     RecentBooksComponent,
-    BookCardComponent
+    BookCardComponent,
+    AddBookComponent
   ],
   imports: [
     CommonModule,
     BooksRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   // providers: [BookService] -- across all module
 })
