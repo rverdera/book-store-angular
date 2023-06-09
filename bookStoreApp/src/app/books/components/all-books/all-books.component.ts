@@ -32,6 +32,7 @@ export class AllBooksComponent implements OnInit {
     this.pageTitle = 'All Books';
     
     const allBooks = this.bookService.getBooks();
+
     allBooks.forEach(b => {
       var obj = new BookModel();
       obj.id = b.id;
@@ -39,6 +40,8 @@ export class AllBooksComponent implements OnInit {
       obj.price = b.price;
       obj.title = b.title;
       obj.totalPages = b.totalPages;
+      obj.isPublished = b.isPublished;
+      obj.publishedOn = b.publishedOn
 
       this.books.push(obj);
 
