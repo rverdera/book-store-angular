@@ -1,7 +1,8 @@
-import {Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { BookService } from '../../services/book.service';
 import { BookModel } from '../../models/book.model';
 import { PriceModel } from '../../models/price.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-book',
@@ -11,12 +12,14 @@ import { PriceModel } from '../../models/price.model';
 export class AddBookComponent implements OnInit {
 
   prices: any[] = [
-    {value: 100, viewValue: '$ 100'},
-    {value: 200, viewValue: '$ 200'},
-    {value: 300, viewValue: '$ 300'},
+    { value: 100, viewValue: '$ 100' },
+    { value: 200, viewValue: '$ 200' },
+    { value: 300, viewValue: '$ 300' },
   ];
 
-  public model : BookModel;
+  public model: BookModel;
+
+  @ViewChild('myForm') myForm: NgForm;
 
   constructor(private _bookService: BookService) { }
 
@@ -34,20 +37,16 @@ export class AddBookComponent implements OnInit {
 
   }
 
-  saveBook() : void {
-    console.log(this.model);
-    // const book: BookModel = new BookModel();
-    // book.title = value.title;
-    // book.author = value.author;
-    // book.totalPages = value.pages;
-    // book.price = {
-    //   currency: "$",
-    //   value: value.price
-    // };
-    // book.isPublished = value.isPublished;
-    // book.publishedOn = value.publishedOn;   
+  saveBook(): void {
 
-    this._bookService.addBook(this.model);
+    console.log(this.model);
+    if (this.myForm.valid) {
+      this._bookService.addBook(this.model);
+    } else {
+      alert('Form Invalid');
+    }
+
+   
   }
 
 }
