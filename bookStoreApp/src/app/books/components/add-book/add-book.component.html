@@ -1,19 +1,35 @@
 <h2>Add new Book</h2>
-{{ 'valid = ' + myForm.valid }} <br>
-{{ 'invalid = ' + myForm.invalid }}
+<table>
+    <tr>
+        <td>pristine</td>
+        <td>{{ bookTitle.pristine }}</td>
+    </tr>
+    <tr>
+        <td>dirty</td>
+        <td>{{ bookTitle.dirty }}</td>
+    </tr>
+    <tr>
+        <td>touched</td>
+        <td>{{ bookTitle.touched }}</td>
+    </tr>
+    <tr>
+        <td>status</td>
+        <td>{{ bookTitle.status }}</td>
+    </tr>
+</table>
 <form #myForm="ngForm" (ngSubmit)="saveBook()" class="add-book-form">
     <mat-form-field appearance="fill">
         <mat-label>Title</mat-label>
-        <input matInput placeholder="Title" name="title" [(ngModel)]="model.title" required maxlength="10" #bookTitle="ngModel">
+        <input matInput placeholder="Title" name="title" [(ngModel)]="model.title" required minlength="10" #bookTitle="ngModel">
         <mat-icon matSuffix>title</mat-icon>
-        <mat-hint [hidden]="bookTitle.valid">Please enter book title</mat-hint>
+        <mat-hint *ngIf="bookTitle.invalid && bookTitle.touched">Please enter book title</mat-hint>
         <!-- <mat-error>Please enter the book title</mat-error> -->
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Author</mat-label>
         <input matInput placeholder="Author" name="author" [(ngModel)]="model.author" required #author="ngModel">
         <mat-icon matSuffix>person</mat-icon>
-        <mat-hint [hidden]="author.valid">Please enter author</mat-hint>
+        <mat-hint *ngIf="author.invalid && author.touched">Please enter author</mat-hint>
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Pages</mat-label>
@@ -27,7 +43,7 @@
         <mat-select placeholder="Price" name="price" [(ngModel)]="model.price.value">
             <mat-option *ngFor="let price of prices" [value]="price.value">
                 {{ price.viewValue }}
-            </mat-option>           
+            </mat-option>
         </mat-select>
         <mat-icon matSuffix>attach_money</mat-icon>
     </mat-form-field>
