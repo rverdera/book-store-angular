@@ -28,8 +28,7 @@
         <mat-icon matSuffix>title</mat-icon>
         <mat-hint *ngIf="bookTitle.invalid && bookTitle.touched">
             <span *ngIf="bookTitle.errors?.['required']">Please enter book title</span>
-            <span *ngIf="bookTitle.errors?.['minlength']">Min length is 10</span>
-            
+            <span *ngIf="bookTitle.errors?.['minlength']">Min length is 10</span>            
         </mat-hint>
         <!-- <mat-error>Please enter the book title</mat-error> -->
     </mat-form-field>

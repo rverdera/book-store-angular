@@ -45,8 +45,6 @@ export class AddBookComponent implements OnInit {
     } else {
       alert('Form Invalid');
     }
-
-   
   }
 
 }
