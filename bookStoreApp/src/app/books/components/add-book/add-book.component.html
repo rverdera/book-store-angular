@@ -4,18 +4,22 @@
 <form #myForm="ngForm" (ngSubmit)="saveBook()" class="add-book-form">
     <mat-form-field appearance="fill">
         <mat-label>Title</mat-label>
-        <input matInput placeholder="Title" name="title" [(ngModel)]="model.title" required>
+        <input matInput placeholder="Title" name="title" [(ngModel)]="model.title" required maxlength="10" #bookTitle="ngModel">
         <mat-icon matSuffix>title</mat-icon>
+        <mat-hint [hidden]="bookTitle.valid">Please enter book title</mat-hint>
+        <!-- <mat-error>Please enter the book title</mat-error> -->
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Author</mat-label>
-        <input matInput placeholder="Author" name="author" [(ngModel)]="model.author" required>
+        <input matInput placeholder="Author" name="author" [(ngModel)]="model.author" required #author="ngModel">
         <mat-icon matSuffix>person</mat-icon>
+        <mat-hint [hidden]="author.valid">Please enter author</mat-hint>
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Pages</mat-label>
-        <input matInput placeholder="Pages" name="pages" type="number" [(ngModel)]="model.totalPages">
+        <input matInput placeholder="Pages" name="pages" type="number" [(ngModel)]="model.totalPages" max="1000" min="10" #totalPages="ngModel">
         <mat-icon matSuffix>123</mat-icon>
+        <mat-hint [hidden]="totalPages.valid">Valid length is 10 to 1000</mat-hint>
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Price</mat-label>
