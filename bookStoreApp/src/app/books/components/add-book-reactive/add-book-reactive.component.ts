@@ -26,14 +26,42 @@ export class AddBookReactiveComponent implements OnInit {
 
   constructor(private _bookService: BookService) {
 
-
   }
 
   ngOnInit(): void {
     this.initForm();
+    
+    console.log(this.addBookForm.controls['title']);
+    console.log(this.addBookForm.get('title'));
+    
+    
   }
 
+
+  updateFormValues(): void {
+
+    this.addBookForm.patchValue({
+      title: 'nitish kaushik',
+      author: 'default nitish'
+    });
+
+  }
+
+  saveBook(): void {
+
+    console.log(this.addBookForm.value);
+
+    if (this.addBookForm.valid) {
+      this._bookService.addBook(this.addBookForm.value);
+    } else {
+      alert('Form Invalid');
+    }
+
+  }
+
+
   private initForm(): void {
+
     this.addBookForm = new FormGroup({
       title: new FormControl('nitish', [
         Validators.required,
@@ -47,18 +75,7 @@ export class AddBookReactiveComponent implements OnInit {
       }),
       publishedOn: new FormControl(),
       isPublished: new FormControl()
-    });
-  }
-
-  saveBook(): void {
-
-    console.log(this.addBookForm.value);
-
-    if (this.addBookForm.valid) {
-      this._bookService.addBook(this.addBookForm.value);
-    } else {
-      alert('Form Invalid');
-    }
+    });    
   }
 
 
