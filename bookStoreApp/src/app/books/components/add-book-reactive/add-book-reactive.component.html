@@ -7,7 +7,10 @@
         <mat-label>Title</mat-label>
         <input matInput placeholder="Title" name="title" formControlName="title">
         <mat-icon matSuffix>title</mat-icon>
-        <!-- <mat-error>Please enter the book title</mat-error> -->
+        <mat-hint *ngIf="addBookForm.get('title')?.invalid && addBookForm.get('title')?.touched">
+            <span *ngIf="addBookForm.get('title')?.errors?.['required']">Please enter book title</span>
+            <span *ngIf="addBookForm.get('title')?.errors?.['minlength']">Min length is 10</span>            
+        </mat-hint>
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Author</mat-label>
