@@ -3,6 +3,21 @@
 {{ addBookForm.get('title')?.valid }}
 {{ addBookForm.get('title')?.errors | json }}
 <form class="add-book-form" (ngSubmit)="saveBook()" [formGroup]="addBookForm">
+    <mat-radio-group aria-label="Select an option" class="toggle" formControlName="formatType">
+        <mat-radio-button value="pdf">PDF</mat-radio-button>
+        <mat-radio-button value="doc">DOC</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Doc Format</mat-label>
+        <input matInput placeholder="Doc Format" name="docFormat" formControlName="docFormat">
+        <mat-icon matSuffix>title</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>PDF Format</mat-label>
+        <input matInput placeholder="PDF Format" name="pdfFormat" formControlName="pdfFormat">
+        <mat-icon matSuffix>title</mat-icon>
+    </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Title</mat-label>
         <input matInput placeholder="Title" name="title" formControlName="title">
@@ -19,7 +34,7 @@
         <input matInput placeholder="Pages" name="pages" type="number" formControlName="totalPages">
         <mat-icon matSuffix>123</mat-icon>
     </mat-form-field>
-    <div class="price-container" formGroupName="price">  <!-- Nested Formgorup -->
+    <div class="price-container" formGroupName="price"> <!-- Nested Formgorup -->
         <mat-form-field appearance="fill">
             <mat-label>Cuurency</mat-label>
             <mat-select placeholder="Currency" name="currency" formControlName="currency">
