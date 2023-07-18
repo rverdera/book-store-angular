@@ -59,20 +59,13 @@ export class AddBookReactiveComponent implements OnInit {
   }
 
 
-  updateFormValues(): void {
-    this.addBookForm.patchValue({
-      title: 'nitish kaushik',
-      author: 'default nitish'
-    });
 
-  }
 
-  saveBook(): void {
-
-    console.log(this.addBookForm.value);
-
+  saveBook(): void {  
     if (this.addBookForm.valid) {
-      this._bookService.addBook(this.addBookForm.value);
+      this._bookService.addBook(this.addBookForm.value).subscribe(x => {
+        console.log(x);        
+      });
     } else {
       alert('Form Invalid');
     }
@@ -102,7 +95,8 @@ export class AddBookReactiveComponent implements OnInit {
 
   private getAuthorControl(): FormGroup {
     return this._formBuilder.group({
-      fullName: ''
+      fullName: '',
+      address: ''
     });
 
   }
@@ -133,8 +127,6 @@ export class AddBookReactiveComponent implements OnInit {
 
     pdfControl?.updateValueAndValidity();
     docControl?.updateValueAndValidity();
-
-
   }
 
 

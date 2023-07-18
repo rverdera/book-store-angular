@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class BookService {
 
-
+  
   constructor(private _httpClient: HttpClient) { 
     
   }
@@ -18,8 +18,8 @@ export class BookService {
     return this._httpClient.get<BookModel[]>('https://localhost:7031/api/Books');
   } 
 
-  public addBook(bookModel : BookModel): void {
-   
+  public addBook(bookModel : BookModel): Observable<BookModel> {
+    return this._httpClient.post<BookModel>('https://localhost:7031/api/Books', bookModel);
   }
 
 }
