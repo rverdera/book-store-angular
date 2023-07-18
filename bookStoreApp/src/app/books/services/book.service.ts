@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BookModel } from '../models/book.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root' // available service in the entire application
@@ -7,63 +8,17 @@ import { BookModel } from '../models/book.model';
 export class BookService {
 
 
-  private allBooks = [
-    {
-      "id": 1,
-      "title": "Angular Fundamentals",
-      "totalPages": 453,
-      "author": "Ram Singh",
-      "price": {
-        "currency": "INR",
-        "value": 199
-      }
-    },
-    {
-      "id": 2,
-      "title": "Java Fundamentals",
-      "totalPages": 987,
-      "author": "Kishan Pal",
-      "price": {
-        "currency": "USD",
-        "value": 19
-      }
-    }
-  ];
-
-  constructor() { }
 
 
-  public getBooks(): any[] {
-    return this.allBooks;
-  }
+  constructor(private _httpClient: HttpClient) { }
 
-  public recentBooks(): any[] {
-    return [
-      {
-        "id": 1,
-        "title": "Angular Fundamentals",
-        "totalPages": 453,
-        "author": "Ram Singh",
-        "price": {
-          "currency": "INR",
-          "value": 199
-        }
-      },
-      {
-        "id": 2,
-        "title": "Java Fundamentals",
-        "totalPages": 987,
-        "author": "Kishan Pal",
-        "price": {
-          "currency": "USD",
-          "value": 19
-        }    
-      }
-    ]
-  }
+
+  public getBooks(): void {
+    
+  } 
 
   public addBook(bookModel : BookModel): void {
-    this.allBooks.push(bookModel);
+   
   }
 
 }

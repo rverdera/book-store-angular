@@ -9,6 +9,7 @@ import { MaterialModule } from './material.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { AuthorsComponent } from './components/authors/authors.component';
 import { AuthorsAddressComponent } from './components/authors-address/authors-address.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -23,14 +24,16 @@ import { AuthorsAddressComponent } from './components/authors-address/authors-ad
   imports: [
     CommonModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   exports: [
     ToolbarComponent,
     FooterComponent,
     MaterialModule,
     AuthorsComponent,
-    AuthorsAddressComponent
+    AuthorsAddressComponent,
+    HttpClientModule
   ]
 })
 export class SharedModule { }
